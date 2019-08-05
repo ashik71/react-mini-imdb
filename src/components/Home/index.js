@@ -59,8 +59,7 @@ class Home extends Component {
     }
 
     fetchData = async (api_url) => {
-        const respone = await (await fetch(api_url)).json();
-        console.log(respone);
+        const respone = await (await fetch(api_url)).json();        
         this.setState({
             movies: [...this.state.movies, ...respone.results],
             sliderImage: respone.results[0] || this.state.sliderImage,
@@ -87,7 +86,7 @@ class Home extends Component {
                 }
                 <div className="rmdb-home-grid">
                     <MoviesList
-                        header={this.state.searchText ? 'Search result' : 'Popolar Movies'}
+                        header={this.state.searchText ? 'Search result' : 'Popular Movies'}
                         loading={this.state.loading}
                     >
                         {

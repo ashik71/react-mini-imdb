@@ -6,10 +6,10 @@ const Header = () => {
         <div className="rmdb-header">
             <div className="rmdb-header-content">
                 <Link to='/'>
-                    <img className="rmdb-logo" src="/images/reactMovie_logo.png" />
+                    <img className="rmdb-logo" src="/images/reactMovie_logo.png" alt="home title" />
                 </Link>
-                <a href="https://www.themoviedb.org/" target="_blank">
-                <img className="rmdb-tmdb-logo" src="/images/tmdb_logo.png" />
+                <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">
+                <img className="rmdb-tmdb-logo" src="/images/tmdb_logo.png" alt="themoviedb" />
                 </a>
                 
             </div>

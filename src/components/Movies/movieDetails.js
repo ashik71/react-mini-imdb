@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE, calcTime, convertMoney } from '../utils/config';
+import { API_URL, API_KEY, calcTime, convertMoney } from '../utils/config';
 import { Link } from 'react-router-dom';
 import MovieInfo from './movieInfo';
 import MoviesList from './index';
@@ -21,37 +21,15 @@ class MovieDetails extends Component {
         this.fetchData(api_url);
     }
 
-    fetchData = async (endpoint) => {
-        // const respone = await (await fetch(api_url)).json();
-        // console.log(respone);
-
-        // if (respone.status_code) {
-        //     this.setState({ loading: false });
-        // } else {
-        //     this.setState({ movie: respone }, () => {
-        //         const api_url = `${API_URL}movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}`;
-        //         fetch(api_url)
-        //             .then(respone => respone.json())
-        //             .then(respone => {
-        //                 const directors = respone.crew.filter((member) => member.job === "Director");
-        //                 this.setState({
-        //                     actors: respone.cast,
-        //                     directors,
-        //                     loading: false
-        //                 })
-        //             })
-        //     })
-        // }
+    fetchData = async (endpoint) => {       
         fetch(endpoint)
             .then(result => result.json())
             .then(result => {
 
-                if (result.status_code) {
-                    // If we don't find any movie
+                if (result.status_code) {                    
                     this.setState({ loading: false });
                 } else {
-                    this.setState({ movie: result }, () => {
-                        // ... then fetch actors in the setState callback function
+                    this.setState({ movie: result }, () => {                        
                         let endpoint = `${API_URL}movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}`;
                         fetch(endpoint)
                             .then(result => result.json())
@@ -71,8 +49,7 @@ class MovieDetails extends Component {
             .catch(error => console.error('Error:', error))
     }
 
-    render() {
-        console.log(this.state.movie);
+    render() {        
         return (
             <React.Fragment>
                 {

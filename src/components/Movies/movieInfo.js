@@ -1,5 +1,5 @@
 import React from 'react';
-import { API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../utils/config';
+import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../utils/config';
 import MovieThumb from '../Movies/movieThumb';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
@@ -34,10 +34,7 @@ const MovieInfo = (props) => {
                 </div>
                 <FontAwesomeIcon className="fa-film" icon={faFilm} size="5x"/>
             </div>
-        </div>
-        // <div>
-        //     hello info
-        // </div>
+        </div>       
     );
 };
 
